@@ -603,13 +603,12 @@ async function sendConnectMessage(Matrix) {
          document: { url: "https://files.catbox.moe/qtvynm.jpg" }, 
          mimetype: 'application/pdf',
          fileName: `${connectTime}`,
-         caption: `
-*_____________________*
-*create by njabulo jb
-*library: baileys
-*prefix: *${prefix}*
-*bot number: ${botNumber}
-*connect time: ${connectTime}
+         caption: `*_____________________*
+*create by njabulo jb*
+*library: baileys*
+*prefix: ${prefix}*
+*bot number: ${botNumber}*
+*connect time: ${connectTime}*
 *_____________________*
 
 *_____________________*
@@ -622,7 +621,7 @@ async function sendConnectMessage(Matrix) {
             title: " ⇆ Message bot active↻ ",
             mediaType: 1,
             previewType: 0,
-            thumbnailUrl: "https://files.catbox.moe/qtvynm.jpg ",
+            thumbnailUrl: "https://files.catbox.moe/qtvynm.jpg",
             renderLargerThumbnail: true,
             },
             },
