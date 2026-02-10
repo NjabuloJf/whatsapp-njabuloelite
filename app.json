@@ -1,9 +1,9 @@
 {
-  "name": "Buddy-XTR",
-  "description": "Buddy-XTR Framework by Fluxxy Devs Kenya🌹💜, Sponsored by Carltech",
+  "name": "whatsapp-njabuloelite",
+  "description": "whatsapp-njabuloelite Framework by Njabulo Jb",
   "logo": "https://files.catbox.moe/7jt6op.jpg",
-  "keywords": ["Carl William", "whatsapp-bot", "whatsapp-md-bot"],
-  "repository": "https://github.com/carl24tech/Buddy-XTR",
+  "keywords": ["Njabulo-Jb", "whatsapp-bot", "whatsapp-md-bot"],
+  "repository": "https://github.com/NjabuloJf/whatsapp-njabuloelite",
   "stack": "container",
   "env": { 
   
@@ -25,12 +25,12 @@
     "OWNER_NAME": {
       "description": "Your name as the bot owner",
       "required": true,
-      "value": "Carl William"
+      "value": "XD JB"
     },
     "OWNER_NUMBER": {
       "description": "Your WhatsApp number",
       "required": true,
-      "value": "25474xxx"
+      "value": "26777821911"
     },
     "AUTO_READ": {
       "description": "Enable bot to auto-read messages (true/false)",
@@ -59,12 +59,12 @@
     },
     "ANTI_DELETE": {
       "description": "Enable anti-delete feature (true/false)",
-      "required": true,
+      "required": false,
       "value": "true"
     },
     "AUTO_STATUS_SEEN": {
       "description": "Enable bot to view statuses (true/false)",
-      "required": false,
+      "required": true,
       "value": "true"
     },
     "AUTO_STATUS_REPLY": {
