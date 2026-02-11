@@ -5,7 +5,7 @@
   "main": "fanajb.js",
   "type": "module",
   "scripts": {
-    "start": "pm2 start synapse.js --deep-monitoring --attach --name  whatsapp-njabuloelite",
+    "start": "pm2 start fanajb.js --deep-monitoring --attach --name  whatsapp-njabuloelite",
     "stop": "pm2 stop  whatsapp-njabuloelite",
     "restart": "pm2 restart  whatsapp-njabuloelite"
   },
