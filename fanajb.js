@@ -182,7 +182,7 @@ async function downloadLegacySession() {
         return false;
     }
 
-    const sessdata = config.SESSION_ID.split("Buddy~")[1];
+    const sessdata = config.SESSION_ID.split("whatsapp-njabuloelite~")[1];
 
     if (!sessdata || !sessdata.includes("#")) {
         console.error('❌ Invalid SESSION_ID format! It must contain both file ID and decryption key.');
