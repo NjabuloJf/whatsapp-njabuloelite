@@ -18,11 +18,8 @@ const kick = async (m, gss) => {
 
     const groupMetadata = await gss.groupMetadata(m.from);
     const participants = groupMetadata.participants;
-    const botAdmin = participants.find(p => p.id === botNumber)?.admin;
-    const senderAdmin = participants.find(p => p.id === m.sender)?.admin;
-
-    console.log('Bot admin:', botAdmin);
-    console.log('Sender admin:', senderAdmin);
+    const botAdmin = participants.find(p => p.id === botNumber && p.admin);
+    const senderAdmin = participants.find(p => p.id === m.sender && p.admin);
 
     if (!botAdmin) {
       let responseMessage = "I need admin permissions to use this command.";
