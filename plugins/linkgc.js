@@ -30,7 +30,7 @@ const linkgc = async (m, gss) => {
     const botNumber = await gss.decodeJid(gss.user.id);
     const isBotAdmins = groupMetadata.participants.find(p => p.id === botNumber)?.admin;
 
-    if (!isBotAdmins) {
+    if (!verifGroupe) {
       let responseMessage = "*📛 BOT MUST BE AN ADMIN TO USE THIS COMMAND.*";
       return await gss.sendMessage(m.from, {
         text: " ",
