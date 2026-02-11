@@ -17,7 +17,7 @@ const facebook = async (m, Matrix) => {
         externalAdReply: {
           title: `👋hy ${m.pushName}`,
           body: responseMessage,
-          thumbnailUrl: "https://raw.githubusercontent.com/NjabuloJf/Njabulo-Jb/main/public/fana.jpg",
+          thumbnailUrl: "",
           mediaType: 1,
           renderLargerThumbnail: false,
           sourceUrl: "https://github.com/NjabuloJf/Njabulo-Jb",
@@ -30,6 +30,7 @@ const facebook = async (m, Matrix) => {
     await Matrix.sendMessage(m.from, { react: { text: "⏳", key: m.key } });
 
     const { data } = await axios.get(`https://api.davidcyriltech.my.id/facebook2?url=${query}`);
+
     if (!data.status || !data.video || !data.video.downloads) {
       let responseMessage = "⚠️ *Failed to fetch Facebook video. Please try again.*";
       return Matrix.sendMessage(m.from, {
@@ -38,7 +39,7 @@ const facebook = async (m, Matrix) => {
           externalAdReply: {
             title: `👋hy ${m.pushName}`,
             body: responseMessage,
-            thumbnailUrl: "https://raw.githubusercontent.com/NjabuloJf/Njabulo-Jb/main/public/fana.jpg",
+            thumbnailUrl: "",
             mediaType: 1,
             renderLargerThumbnail: false,
             sourceUrl: "https://github.com/NjabuloJf/Njabulo-Jb",
@@ -58,7 +59,7 @@ const facebook = async (m, Matrix) => {
           externalAdReply: {
             title: `👋hy ${m.pushName}`,
             body: responseMessage,
-            thumbnailUrl: "https://raw.githubusercontent.com/NjabuloJf/Njabulo-Jb/main/public/fana.jpg",
+            thumbnailUrl: "",
             mediaType: 1,
             renderLargerThumbnail: false,
             sourceUrl: "https://github.com/NjabuloJf/Njabulo-Jb",
@@ -69,33 +70,20 @@ const facebook = async (m, Matrix) => {
 
     const caption = `📹 *Facebook Video*\n\n🎬 *Title:* ${title}\n📥 *Quality:* ${bestQuality.quality} ✅*`;
 
-
-
-    await Matrix.sendMessage(m.from, {
-      caption,      
-        externalAdReply: {
-          title: `👋hy ${m.pushName}`,
-          body: caption,
-          thumbnailUrl: "https://raw.githubusercontent.com/NjabuloJf/Njabulo-Jb/main/public/fana.jpg",
-          mediaType: 1,
-          renderLargerThumbnail: false,
-          sourceUrl: "https://github.com/NjabuloJf/Njabulo-Jb",
-        }
-      },
-    }, { quoted: m });
-    
     await Matrix.sendMessage(m.from, {
       video: { url: bestQuality.downloadUrl },
-      mimetype: "video/mp4",    
+      mimetype: "video/mp4",
+      caption,
+      contextInfo: {
         externalAdReply: {
           title: `👋hy ${m.pushName}`,
           body: caption,
-          thumbnailUrl: "https://raw.githubusercontent.com/NjabuloJf/Njabulo-Jb/main/public/fana.jpg",
+          thumbnailUrl: "",
           mediaType: 1,
           renderLargerThumbnail: false,
           sourceUrl: "https://github.com/NjabuloJf/Njabulo-Jb",
         }
-      },
+      }
     }, { quoted: m });
 
     await Matrix.sendMessage(m.from, { react: { text: "✅", key: m.key } });
@@ -108,7 +96,7 @@ const facebook = async (m, Matrix) => {
         externalAdReply: {
           title: `👋hy ${m.pushName}`,
           body: responseMessage,
-          thumbnailUrl: "https://raw.githubusercontent.com/NjabuloJf/Njabulo-Jb/main/public/fana.jpg",
+          thumbnailUrl: "",
           mediaType: 1,
           renderLargerThumbnail: false,
           sourceUrl: "https://github.com/NjabuloJf/Njabulo-Jb",
