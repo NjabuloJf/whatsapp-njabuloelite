@@ -1,3 +1,4 @@
+
 import { serialize } from '../lib/Serializer.js';
 
 const antilinkSettings = {}; // In-memory database to store antilink settings for each chat
@@ -54,13 +55,16 @@ export const handleAntilink = async (m, sock, logger, isBotAdmins, isAdmins, isC
 
     if (antilinkSettings[m.from]) {
       try {
-        if (m.body.match(/(chat.whatsapp.com\/)/gi)) {
+        if (m.body.match(/(https:\/\/chat.whatsapp.com\/)/gi)) {
+          console.log('Link detected!');
           if (!isBotAdmins) {
+            console.log('Bot is not an admin');
             await sock.sendMessage(m.from, { text: `The bot needs to be an admin to remove links.` });
             return;
           }
 
           if (isAdmins) {
+            console.log('Admin is sharing a link');
             await sock.sendMessage(m.from, { text: `Admins are allowed to share links.` });
             return;
           }
@@ -70,16 +74,19 @@ export const handleAntilink = async (m, sock, logger, isBotAdmins, isAdmins, isC
           let isgclink = isLinkThisGc.test(m.body);
 
           if (isgclink) {
+            console.log('Link is for this group');
             await sock.sendMessage(m.from, { text: `The link you shared is for this group, so you won't be removed.` });
             return;
           }
 
+          console.log('Deleting link message...');
           // Send warning message first
           await sock.sendMessage(m.from, { text: `\`\`\`「 Group Link Detected 」\`\`\`\n\n@${m.sender.split("@")[0]}, please do not share group links in this group.`, contextInfo: { mentionedJid: [m.sender] } }, { quoted: m });
 
           // Delete the link message
           await sock.sendMessage(m.from, { delete: { remoteJid: m.from, fromMe: false, id: m.key.id, participant: m.key.participant } });
 
+          console.log('Removing user...');
           // Wait for a short duration before kicking
           setTimeout(async () => {
             try {
